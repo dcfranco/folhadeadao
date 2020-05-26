@@ -24,7 +24,7 @@ function Question3() {
           primeiro e mais exclusivo look do homem'
           <small className='d-block'>by marlon cristiano</small>
         </Question.Text>
-        <Question.Text className='text-primary text-smaller text-center w-100 mt-auto'>
+        <Question.Text className='text-primary text-smaller text-center w-100 mt-auto pb-2'>
           Conheça agora sobre a <strong className='d-block'>grife mais exclusiva do mundo</strong>
         </Question.Text>
       </Question>
