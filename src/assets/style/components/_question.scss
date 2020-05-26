@@ -1,0 +1,59 @@
+.question {
+  min-height: 55vh;
+  margin: auto 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .question-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .question-video {
+    height: 30vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: auto;
+  }
+
+  .question-text {
+    font-family: 'Champagne & Limousines';
+    text-transform: uppercase;
+    font-weight: 100;
+    font-size: 1.36rem;
+    line-height: 27px;
+
+    &.text-normal {
+      text-transform: none;
+      font-size: 1.2rem;
+    }
+
+    &.text-smaller {
+      font-size: 1.17rem;
+    }
+
+    strong {
+      font-weight: bold;
+    }
+  }
+
+  .question-options {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0px;
+
+    .btn {
+      width: 100%;
+      margin-right: 10px;
+      font-size: 1.2rem;
+
+      &:last-child {
+        margin-right: 0px;
+      }
+    }
+  }
+}

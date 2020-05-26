@@ -1,0 +1,22 @@
+
+$background-color: $black;
+$font-color: $white;
+
+$theme-colors: (
+  'primary':    $primary,
+  "secondary":  $secondary,
+  "success":    $success,
+  "info":       $info,
+  "warning":    $warning,
+  "danger":     $danger,
+  "light":      $gray,
+  "dark":       $gray-500,
+);
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+) !default;
