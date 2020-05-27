@@ -27,6 +27,8 @@ const AsyncQuestion15 = AsyncComponentHOC(() => import('containers/Questions/Que
 const AsyncQuestion16 = AsyncComponentHOC(() => import('containers/Questions/Question16'))
 const AsyncQuestion17 = AsyncComponentHOC(() => import('containers/Questions/Question17'))
 const AsyncQuestion18 = AsyncComponentHOC(() => import('containers/Questions/Question18'))
+const AsyncQuestion19 = AsyncComponentHOC(() => import('containers/Questions/Question19'))
+const AsyncQuestion20 = AsyncComponentHOC(() => import('containers/Questions/Question20'))
 
 const { QUESTIONS } = subRouteCodes
 
@@ -56,6 +58,8 @@ function Questions() {
       <Route exact path={`${routeCodes.QUESTIONS}${QUESTIONS.QUESTION16}`} component={AsyncQuestion16} />
       <Route exact path={`${routeCodes.QUESTIONS}${QUESTIONS.QUESTION17}`} component={AsyncQuestion17} />
       <Route exact path={`${routeCodes.QUESTIONS}${QUESTIONS.QUESTION18}`} component={AsyncQuestion18} />
+      <Route exact path={`${routeCodes.QUESTIONS}${QUESTIONS.QUESTION19}`} component={AsyncQuestion19} />
+      <Route exact path={`${routeCodes.QUESTIONS}${QUESTIONS.QUESTION20}`} component={AsyncQuestion20} />
     </AnimatedSwitch>
   );
 }

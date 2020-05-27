@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useContext, useEffect } from 'react';
+import React, { Fragment, useState } from 'react';
 import classNames from 'classnames';
 import Header from 'components/Header';
 import Question from 'components/Question';
@@ -7,19 +7,11 @@ import Button from 'components/Button';
 import Footer from 'components/Footer';
 import routeCodes from 'constants/routeCodes';
 import { useHistory } from 'react-router-dom';
-import { AppContext } from 'context/AppContext';
 
-function ButtonSingleChoice({ question, hideBackground }) {
+function ButtonSingleChoice({ question }) {
   const [selected, updateSelected] = useState(null);
   const history = useHistory();
-  const {isBackgroundVisible, toggleBackgroundVisible} = useContext(AppContext);
   
-  useEffect(() => {
-    if (isBackgroundVisible && hideBackground) {
-      toggleBackgroundVisible(false);
-    }
-  }, [isBackgroundVisible, hideBackground, toggleBackgroundVisible])
-
   return (
     <Fragment>
       {typeof question.LOGO === 'object' ? (

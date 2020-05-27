@@ -1,25 +1,41 @@
 main {
-  max-width: 460px;
+  max-width: 450px;
   max-height: 100vh;
   height: 80vh;
   margin: auto auto;
   position: relative;
-  padding: 40px 55px 30px 40px;
   background-repeat: no-repeat;
   background-image: url('../../images/bar.png');
   background-size: contain;
   background-position: right center;
   display: flex;
   flex-direction: column;
-  
+  align-items: center;
+  justify-content: center;
+  margin-top: 2%;
+  padding: 40px 55px 30px 40px;
+  transition: max-width 0.8s ease-in-out;
+
   &.no-background {
     background-image: none;
     padding: 30px 30px;
+  }
+
+  > div {
+    max-width: 330px;
+    height: 100%;
+    width: 100%;
   }
 
   @include media-breakpoint-down(xs) {
     max-height: 100vh;
     height: 100vh;
     max-width: 100vw;
+    margin-top: 0;
+    > div {
+      max-width: 100vw;
+      height: 100%;
+      width: 100%;
+    }
   }
 }

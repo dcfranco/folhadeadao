@@ -12,11 +12,26 @@ function Custom({ question }) {
 
   return (
     <Fragment>
-      <Header className='text-center'>
-        <Header.Logo className={question.IMAGE.SRC}>
-          <Image src={question.IMAGE.SRC} />
-        </Header.Logo>
-      </Header>
+      {typeof question.LOGO === 'object' ? (
+        <Header className='text-center mt-0'>
+          <Header.Logo className={question.LOGO.CLASSNAME}>
+            <Image src={question.LOGO.SRC} maxWidth='90px' />
+          </Header.Logo>
+          { question.TITLE && (
+            <Header.Title className='text-normal w-100 mt-3 mb-0'>
+              <div dangerouslySetInnerHTML={ {  __html: question.TITLE } } />
+            </Header.Title>
+          )}
+        </Header>
+      ) : (
+        <Header>
+          { question.TITLE && (
+            <Header.Title className={question.CLASSNAME}>
+              <div dangerouslySetInnerHTML={ {  __html: question.TITLE } } />
+            </Header.Title>
+          )}
+        </Header>
+      )}
       <Question>
         { question.CONTENT.map((content) => {
           if (content.COMPONENT === 'Image') {
@@ -35,13 +50,31 @@ function Custom({ question }) {
             )
           }
 
+          if (content.COMPONENT === 'Form') {
+            return (
+              <Question.Form key={content.CODE} className={ content.CLASSNAME }>
+                { content.RENDER }
+              </Question.Form>
+            )
+          }
+
+          if (content.COMPONENT === 'Options') {
+            return (
+              <Question.Options key={content.CODE} className={ content.CLASSNAME }>
+                { content.RENDER }
+              </Question.Options>
+            )
+          }
+
           return null
         })}
       </Question>
       <Footer>
-        <Button onClick={ () => history.push(`${routeCodes.QUESTIONS}${question.NEXT_ROUTE}`) }>
-          { question.NEXT_CAPTION }
-        </Button>
+        { question.NEXT_ROUTE && (
+          <Button onClick={ () => history.push(`${routeCodes.QUESTIONS}${question.NEXT_ROUTE}`) }>
+            { question.NEXT_CAPTION }
+          </Button>
+        )}
       </Footer>
     </Fragment>
   );

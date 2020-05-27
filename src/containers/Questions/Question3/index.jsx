@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import Image from 'components/Image';
 import { subRouteCodes } from 'constants/routeCodes';
 import { questionType } from 'constants/questions';
 import ImageMultiplesChoices from 'builders/Question/ImageMultiplesChoices';
+import { AppContext } from 'context/AppContext';
 
 const { AVAILABLE_IMAGES } = Image;
 
@@ -38,6 +39,9 @@ const question = {
 }
 
 function Question3() {
+  const {toggleBackgroundVisible} = useContext(AppContext);
+
+  useEffect(() => toggleBackgroundVisible(false), [toggleBackgroundVisible]);
   return (
     <ImageMultiplesChoices question={question} />
   );

@@ -30,7 +30,7 @@ const question = {
 
 function Question16() {
   return (
-    <ButtonSingleChoice question={ question } hideBackground={true} />
+    <ButtonSingleChoice question={ question }  />
   );
 }
 

@@ -18,7 +18,7 @@ const question = {
     {
       CODE: 'C001',
       COMPONENT: 'Image',
-      CLASSNAME: 'mt-3 mb-3',
+      CLASSNAME: 'mb-3',
       RENDER: <Image src={AVAILABLE_IMAGES.LOGO_FULL} maxWidth='60%' />,
     },
     {
@@ -46,10 +46,10 @@ const question = {
   ],
 }
 
-function Question2() {
+function Question20() {
   return (
     <Custom question={question} />
   );
 }
 
-export default Question2;
+export default Question20;
