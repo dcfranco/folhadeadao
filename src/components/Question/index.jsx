@@ -4,7 +4,8 @@ import Image from './Image';
 import Text from './Text';
 import Video from './Video';
 import Options from './Options';
-import Container from './Container'
+import Container from './Container';
+import Form from './Form';
 
 function Question({ children, className }) {
   return (
@@ -19,6 +20,7 @@ Question.Text = Text;
 Question.Video = Video;
 Question.Options = Options;
 Question.Container = Container;
+Question.Form = Form;
 
-export {Image, Text, Video, Options};
+export {Image, Text, Video, Options, Form};
 export default Question;

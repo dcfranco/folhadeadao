@@ -1,41 +1,41 @@
 import React from 'react';
+import Image from 'components/Image';
 import { subRouteCodes } from 'constants/routeCodes';
 import { questionType } from 'constants/questions';
-import Image from 'components/Image';
-import ButtonSingleChoiceDesc from 'builders/Question/ButtonSingleChoiceDesc';
+import ButtonSingleChoice from 'builders/Question/ButtonSingleChoice';
+import Question9Form from './Form';
 
 const { AVAILABLE_IMAGES } = Image;
 
 const question = {
-  TITLE: 'Você gosta do <strong>Corte Boleiro</strong>?',
-  TYPE: questionType.BUTTON_SINGLE_CHOICE_DESCRIPTION,
-  NEXT_CAPTION: 'Próxima',
-  LOGO: {
-    SRC: AVAILABLE_IMAGES.LOGO,
-    CLASSNAME: 'logo',
-  },
+  TITLE: 'Você gostaria de uma camiseta estampada com qual tema?',
+  TYPE: questionType.CUSTOM,
   IMAGE: {
-    SRC: AVAILABLE_IMAGES.SHIRT_BOLEIRO,
-    CLASSNAME: 'w-65 position-absolute ml-n3',
+    SRC: AVAILABLE_IMAGES.MODEL_3,
+    CLASSNAME: 'w-80 h-50 mx-auto'
   },
+  CLASSNAME: 'text-normal text-center w-100 ',
+  NEXT_CAPTION: 'Próxima',
   NEXT_ROUTE: subRouteCodes.QUESTIONS.QUESTION10,
-  DESCRIPTION: [
-    { className: 'd-block font-weight-bold mb-3', content: 'Corte Boleiro' },
-    { className: 'd-block', content: 'Destaca Ombros' },
-    { className: 'd-block', content: 'Caimento Justo' },
-    '17 Cores'
-  ],
+  OPTIONS_CLASSNAME: 'd-flex flex-wrap my-auto',
+  OPTION_CLASSNAME: 'w-33 mx-1 my-1',
   OPTIONS: [
-    { value: 1, label: 'não uso' },
-    { value: 2, label: 'talvez' },
-    { value: 3, label: 'sim, uso' },
+    { value: 1, label: 'música' },
+    { value: 2, label: 'oceano' },
+    { value: 3, label: 'caveiras' },
+    { value: 4, label: 'idolos' },
+    { value: 5, label: 'poker' },
+    { value: 6, label: 'samurai' },
+    { value: 7, label: 'frases' },
+    { value: 8, label: 'animais' },
+    { value: 9, label: 'super heroi' },
   ],
+  FORM: <Question9Form className='my-2' label='Algum pedido especial ?' />
 }
-
 
 function Question9() {
   return (
-    <ButtonSingleChoiceDesc question={ question } />
+    <ButtonSingleChoice question={question} hideBackground={true} />
   );
 }
 

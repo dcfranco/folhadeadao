@@ -1,41 +1,34 @@
 import React from 'react';
+import Image from 'components/Image';
 import { subRouteCodes } from 'constants/routeCodes';
 import { questionType } from 'constants/questions';
-import Image from 'components/Image';
-import ButtonSingleChoiceDesc from 'builders/Question/ButtonSingleChoiceDesc';
+import ImageMultiplesChoices from 'builders/Question/ImageMultiplesChoices';
 
 const { AVAILABLE_IMAGES } = Image;
 
 const question = {
-  TITLE: 'Você gosta do <strong>Corte Canoa</strong>?',
-  TYPE: questionType.BUTTON_SINGLE_CHOICE_DESCRIPTION,
+  TITLE: 'Escolha <strong>3 modelos</strong> que você mais gostou, por ordem de preferência:',
+  TYPE: questionType.IMAGE_MULTIPLE_CHOICE,
+  CLASSNAME: 'text-normal mx-auto w-100',
   NEXT_CAPTION: 'Próxima',
-  LOGO: {
-    SRC: AVAILABLE_IMAGES.LOGO,
-    CLASSNAME: 'logo',
-  },
-  IMAGE: {
-    SRC: AVAILABLE_IMAGES.SHIRT_CANOA,
-    CLASSNAME: 'w-65 position-absolute ml-n1',
-  },
+  MAX: 3,
   NEXT_ROUTE: subRouteCodes.QUESTIONS.QUESTION9,
-  DESCRIPTION: [
-    { className: 'd-block font-weight-bold mb-3', content: 'Corte Canoa' },
-    { className: 'd-block', content: 'Destaca Trapézio' },
-    { className: 'd-block', content: 'Caimento Solto' },
-    '17 Cores'
-  ],
+  OPTIONS_CLASSNAME: 'w-30 m-1',
   OPTIONS: [
-    { value: 1, label: 'não uso' },
-    { value: 2, label: 'talvez' },
-    { value: 3, label: 'sim, uso' },
+    { value: 1, image: AVAILABLE_IMAGES.SHOES_1, label: 'A' },
+    { value: 2, image: AVAILABLE_IMAGES.SHOES_2, label: 'B' },
+    { value: 3, image: AVAILABLE_IMAGES.SHOES_3, label: 'C' },
+    { value: 4, image: AVAILABLE_IMAGES.SHOES_4, label: 'D' },
+    { value: 5, image: AVAILABLE_IMAGES.SHOES_5, label: 'E' },
+    { value: 6, image: AVAILABLE_IMAGES.SHOES_6, label: 'F' },
+    { value: 7, image: AVAILABLE_IMAGES.SHOES_7, label: 'G' },
+    { value: 8, image: AVAILABLE_IMAGES.SHOES_8, label: 'H' },
   ],
 }
 
-
 function Question8() {
   return (
-    <ButtonSingleChoiceDesc question={ question } />
+    <ImageMultiplesChoices question={question} />
   );
 }
 

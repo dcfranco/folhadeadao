@@ -1,4 +1,5 @@
 import React, { Fragment, useState, useContext, useEffect } from 'react';
+import classNames from 'classnames';
 import Header from 'components/Header';
 import Question from 'components/Question';
 import Image from 'components/Image';
@@ -11,14 +12,13 @@ import { AppContext } from 'context/AppContext';
 function ButtonSingleChoice({ question, hideBackground }) {
   const [selected, updateSelected] = useState(null);
   const history = useHistory();
-
-  const {toggleBackgroundVisible} = useContext(AppContext);
+  const {isBackgroundVisible, toggleBackgroundVisible} = useContext(AppContext);
   
   useEffect(() => {
-    if (hideBackground) {
+    if (isBackgroundVisible && hideBackground) {
       toggleBackgroundVisible(false);
     }
-  }, [])
+  }, [isBackgroundVisible, hideBackground, toggleBackgroundVisible])
 
   return (
     <Fragment>
@@ -48,15 +48,18 @@ function ButtonSingleChoice({ question, hideBackground }) {
             <Image src={ question.IMAGE } />
           </Question.Image>
         )}
-        <Question.Options className='mt-auto'>
+        <Question.Options className={classNames('mt-auto', question.OPTIONS_CLASSNAME)}>
           { question.OPTIONS.map((q) => {
             return (
-              <Button key={ q.value } selected={ selected === q.value } onClick={ () => updateSelected(q.value) } >
+              <Button className={question.OPTION_CLASSNAME} key={ q.value } selected={ selected === q.value } onClick={ () => updateSelected(q.value) } >
                 { q.label }
               </Button>
             )
           })}
         </Question.Options>
+        <Question.Form>
+          {( question.FORM )}
+        </Question.Form>
       </Question>
       <Footer>
         <Button onClick={ () => history.push(`${routeCodes.QUESTIONS}${question.NEXT_ROUTE}`) } disabled={ selected === null }>

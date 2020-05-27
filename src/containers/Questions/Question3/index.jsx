@@ -1,54 +1,45 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import Image from 'components/Image';
-import { questionType } from 'constants/questions';
 import { subRouteCodes } from 'constants/routeCodes';
-import Custom from 'builders/Question/Custom';
+import { questionType } from 'constants/questions';
+import ImageMultiplesChoices from 'builders/Question/ImageMultiplesChoices';
 
-const { AVAILABLE_IMAGES } = Image
+const { AVAILABLE_IMAGES } = Image;
 
 const question = {
-  IMAGE: {
-    SRC: AVAILABLE_IMAGES.MODEL_2,
-    CLASSNAME: 'w-100',
+  TITLE: 'Escolha <strong>5 cores</strong> que <strong>mais gosta</strong>, por ordem de preferência?',
+  TYPE: questionType.IMAGE_MULTIPLE_CHOICE,
+  LOGO: {
+    SRC: AVAILABLE_IMAGES.LOGO,
+    CLASSNAME: 'logo',
   },
-  TYPE: questionType.CUSTOM,
-  NEXT_CAPTION: 'Prosseguir',
+  CLASSNAME: 'text-normal mx-auto  w-100',
+  NEXT_CAPTION: 'Próxima',
+  MAX: 5,
   NEXT_ROUTE: subRouteCodes.QUESTIONS.QUESTION4,
-  CONTENT: [
-    {
-      CODE: 'C001',
-      COMPONENT: 'Image',
-      CLASSNAME: 'mt-3 mb-3',
-      RENDER: <Image src={AVAILABLE_IMAGES.LOGO_FULL} maxWidth='60%' />,
-    },
-    {
-      CODE: 'C002',
-      COMPONENT: 'Text',
-      CLASSNAME: 'text-normal m-auto text-right mb-2',
-      RENDER: (
-        <Fragment>
-          'Adão foi o primeiro e mais exclusivo homem da terra, a folha foi o
-          primeiro e mais exclusivo look do homem'
-          <small className='d-block'>by marlon cristiano</small>
-        </Fragment>
-      ),
-    },
-    {
-      CODE: 'C003',
-      COMPONENT: 'Text',
-      CLASSNAME: 'text-primary text-smaller text-center w-100 mt-auto pb-3',
-      RENDER: (
-        <Fragment>
-          Conheça agora sobre a <strong className='d-block'>grife mais exclusiva do mundo</strong>
-        </Fragment>
-      ),
-    }
+  OPTIONS_CLASSNAME: 'w-20 m-1',
+  OPTIONS: [
+    { value: 1, image: AVAILABLE_IMAGES.A, label: 'A' },
+    { value: 2, image: AVAILABLE_IMAGES.B, label: 'B' },
+    { value: 3, image: AVAILABLE_IMAGES.C, label: 'C' },
+    { value: 4, image: AVAILABLE_IMAGES.D, label: 'D' },
+    { value: 5, image: AVAILABLE_IMAGES.E, label: 'E' },
+    { value: 6, image: AVAILABLE_IMAGES.F, label: 'F' },
+    { value: 7, image: AVAILABLE_IMAGES.G, label: 'G' },
+    { value: 8, image: AVAILABLE_IMAGES.H, label: 'H' },
+    { value: 9, image: AVAILABLE_IMAGES.I, label: 'I' },
+    { value: 10, image: AVAILABLE_IMAGES.J, label: 'J' },
+    { value: 12, image: AVAILABLE_IMAGES.L, label: 'L' },
+    { value: 13, image: AVAILABLE_IMAGES.M, label: 'M' },
+    { value: 14, image: AVAILABLE_IMAGES.N, label: 'N' },
+    { value: 15, image: AVAILABLE_IMAGES.O, label: 'O' },
+    { value: 16, image: AVAILABLE_IMAGES.P, label: 'P' },
   ],
 }
 
 function Question3() {
   return (
-    <Custom question={question} />
+    <ImageMultiplesChoices question={question} />
   );
 }
 

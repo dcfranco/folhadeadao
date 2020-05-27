@@ -1,23 +1,41 @@
 import React from 'react';
 import { subRouteCodes } from 'constants/routeCodes';
 import { questionType } from 'constants/questions';
-import Video from 'builders/Question/Video';
+import Image from 'components/Image';
+import ButtonSingleChoiceDesc from 'builders/Question/ButtonSingleChoiceDesc';
+
+const { AVAILABLE_IMAGES } = Image;
 
 const question = {
-  TITLE: 'Conheça',
-  TYPE: questionType.VIDEO,
-  NEXT_CAPTION: 'Prosseguir',
+  TITLE: 'Você gosta do <strong>Corte Canoa</strong>?',
+  TYPE: questionType.BUTTON_SINGLE_CHOICE_DESCRIPTION,
+  NEXT_CAPTION: 'Próxima',
+  LOGO: {
+    SRC: AVAILABLE_IMAGES.LOGO,
+    CLASSNAME: 'logo',
+  },
+  IMAGE: {
+    SRC: AVAILABLE_IMAGES.SHIRT_CANOA,
+    CLASSNAME: 'w-65 position-absolute ml-n1',
+  },
   NEXT_ROUTE: subRouteCodes.QUESTIONS.QUESTION6,
-  TEXT: [
-    'Exclusividade ao extremo, <br /> <strong className="d-block">pioneirismo</strong> & <strong className="d-block">originalidade.</strong>',
-    { className: 'text-primary w-75 mt-3', content: 'Assista o vídeo e prossiga...' },
+  DESCRIPTION: [
+    { className: 'd-block font-weight-bold mb-3', content: 'Corte Canoa' },
+    { className: 'd-block', content: 'Destaca Trapézio' },
+    { className: 'd-block', content: 'Caimento Solto' },
+    '17 Cores'
   ],
-  VIDEO_ID: 'mJlMLCjFZ8c',
+  OPTIONS: [
+    { value: 1, label: 'não uso' },
+    { value: 2, label: 'talvez' },
+    { value: 3, label: 'sim, uso' },
+  ],
 }
+
 
 function Question5() {
   return (
-    <Video question={question} />
+    <ButtonSingleChoiceDesc question={ question } />
   );
 }
 

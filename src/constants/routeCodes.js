@@ -16,6 +16,10 @@ export const subRouteCodes = {
     QUESTION9: '/9',
     QUESTION10: '/10',
     QUESTION11: '/11',
+    QUESTION12: '/12',
+    QUESTION13: '/13',
+    QUESTION14: '/14',
+    QUESTION15: '/15',
   },
 }
 

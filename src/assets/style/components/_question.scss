@@ -1,12 +1,48 @@
 .question {
   min-height: 40vh;
-  height: 70%;;
+  height: 100%;;
   max-width: 100vw;
-  margin: auto 0px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   overflow: hidden;
+  padding: 0px 0px 20px;
+
+  .question-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    > div {
+      width: 95%;
+
+      label {
+        font-family: 'Champagne & Limousines';
+        font-weight: 100;
+        font-size: 1.36rem;
+        margin-bottom: 0px;
+        display: block;
+        text-align: center;
+        @include media-breakpoint-down(xs) {
+          font-size: 4.6vw !important;
+          line-height: 7vw;
+        }
+      }
+
+      input {
+        border-radius: 0px;
+        border: 1px solid $white;
+        background-color: $white;
+        width: 100%;
+        padding: 3px 10px;
+
+        &:focus {
+          outline: none;
+          border-color: $orange;
+        }
+      }
+    }
+  }
 
   .question-image {
     display: flex;
@@ -94,7 +130,36 @@
   .question-options {
     display: flex;
     justify-content: space-between;
-    margin: 20px 0px;
+    margin: 20px 0px 0px;
+
+    &.multiples {
+      flex: 0 1 20%;
+
+      .btn {
+        max-height: 40px;
+      }
+    }
+
+    &.question-options-img {
+      justify-content: center;
+
+      flex-wrap: wrap;
+      margin: auto 4px auto 4px;
+      
+      .question-image {
+        img {
+          border-radius: 15px;
+        }
+
+        &.selected {
+          border-radius: 15px;
+          border: 2px solid $orange;
+          opacity: 0.6;
+          transition: opacity 0.1s ease-in-out;
+          transition: padding 0.1s ease-in-out;
+        }
+      }
+    }
 
     .btn {
       width: 100%;

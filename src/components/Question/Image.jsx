@@ -1,9 +1,11 @@
 import React from 'react';
 import classNames from 'classnames'
 
-function Image({ children, className }) {
+function Image({ children, selected, className, onClick }) {
   return (
-    <div className={classNames('question-image', className)}>
+    <div className={classNames('question-image', {
+      'selected': selected,
+    }, className)} onClick={onClick}>
       { children }
     </div>
   );

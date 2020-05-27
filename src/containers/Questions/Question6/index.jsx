@@ -1,24 +1,41 @@
 import React from 'react';
 import { subRouteCodes } from 'constants/routeCodes';
 import { questionType } from 'constants/questions';
-import Video from 'builders/Question/Video';
+import Image from 'components/Image';
+import ButtonSingleChoiceDesc from 'builders/Question/ButtonSingleChoiceDesc';
+
+const { AVAILABLE_IMAGES } = Image;
 
 const question = {
-  TITLE: 'Video',
-  TYPE: questionType.VIDEO,
-  NEXT_CAPTION: 'Prosseguir',
+  TITLE: 'Você gosta do <strong>Corte Boleiro</strong>?',
+  TYPE: questionType.BUTTON_SINGLE_CHOICE_DESCRIPTION,
+  NEXT_CAPTION: 'Próxima',
+  LOGO: {
+    SRC: AVAILABLE_IMAGES.LOGO,
+    CLASSNAME: 'logo',
+  },
+  IMAGE: {
+    SRC: AVAILABLE_IMAGES.SHIRT_BOLEIRO,
+    CLASSNAME: 'w-65 position-absolute ml-n3',
+  },
   NEXT_ROUTE: subRouteCodes.QUESTIONS.QUESTION7,
-  TEXT: [
-    'Fábrica de armaduras, <br /> <strong className="d-block">consultoria online</strong> <strong className="d-block">& produtos.</strong>',
-    { className: 'small mt-3', content: 'Personalize suas preferências e descubra o melhor da folha de adão para você' },
-    { className: 'text-primary w-75 mt-3', content: 'Assista o vídeo e prossiga...' },
+  DESCRIPTION: [
+    { className: 'd-block font-weight-bold mb-3', content: 'Corte Boleiro' },
+    { className: 'd-block', content: 'Destaca Ombros' },
+    { className: 'd-block', content: 'Caimento Justo' },
+    '17 Cores'
   ],
-  VIDEO_ID: 'mJlMLCjFZ8c',
+  OPTIONS: [
+    { value: 1, label: 'não uso' },
+    { value: 2, label: 'talvez' },
+    { value: 3, label: 'sim, uso' },
+  ],
 }
+
 
 function Question6() {
   return (
-    <Video question={question} />
+    <ButtonSingleChoiceDesc question={ question } />
   );
 }
 

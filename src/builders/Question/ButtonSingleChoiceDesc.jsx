@@ -11,11 +11,13 @@ import { AppContext } from 'context/AppContext';
 function ButtonSingleChoiceDesc({ question }) {
   const [selected, updateSelected] = useState(null);
   const history = useHistory();
-  const {toggleBackgroundVisible} = useContext(AppContext);
-  
+  const {isBackgroundVisible, toggleBackgroundVisible} = useContext(AppContext);
+
   useEffect(() => {
-    toggleBackgroundVisible(false);
-  }, [])
+    if (isBackgroundVisible) {
+      toggleBackgroundVisible(false);
+    }
+  }, [isBackgroundVisible, toggleBackgroundVisible])
 
   return (
     <Fragment>
