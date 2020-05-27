@@ -18,7 +18,15 @@ const AsyncQuestion6 = AsyncComponentHOC(() => import('containers/Questions/Ques
 const AsyncQuestion7 = AsyncComponentHOC(() => import('containers/Questions/Question7'))
 const AsyncQuestion8 = AsyncComponentHOC(() => import('containers/Questions/Question8'))
 const AsyncQuestion9 = AsyncComponentHOC(() => import('containers/Questions/Question9'))
-// const AsyncQuestion14 = AsyncComponentHOC(() => import('containers/Questions/Question14'))
+const AsyncQuestion10 = AsyncComponentHOC(() => import('containers/Questions/Question10'))
+const AsyncQuestion11 = AsyncComponentHOC(() => import('containers/Questions/Question11'))
+const AsyncQuestion12 = AsyncComponentHOC(() => import('containers/Questions/Question12'))
+const AsyncQuestion13 = AsyncComponentHOC(() => import('containers/Questions/Question13'))
+const AsyncQuestion14 = AsyncComponentHOC(() => import('containers/Questions/Question14'))
+const AsyncQuestion15 = AsyncComponentHOC(() => import('containers/Questions/Question15'))
+const AsyncQuestion16 = AsyncComponentHOC(() => import('containers/Questions/Question16'))
+const AsyncQuestion17 = AsyncComponentHOC(() => import('containers/Questions/Question17'))
+const AsyncQuestion18 = AsyncComponentHOC(() => import('containers/Questions/Question18'))
 
 const { QUESTIONS } = subRouteCodes
 
@@ -39,13 +47,15 @@ function Questions() {
       <Route exact path={`${routeCodes.QUESTIONS}${QUESTIONS.QUESTION7}`} component={AsyncQuestion7} />
       <Route exact path={`${routeCodes.QUESTIONS}${QUESTIONS.QUESTION8}`} component={AsyncQuestion8} />
       <Route exact path={`${routeCodes.QUESTIONS}${QUESTIONS.QUESTION9}`} component={AsyncQuestion9} />
-      {/* <Route exact path={`${routeCodes.QUESTIONS}${QUESTIONS.QUESTION10}`} component={AsyncQuestion10} />
+      <Route exact path={`${routeCodes.QUESTIONS}${QUESTIONS.QUESTION10}`} component={AsyncQuestion10} />
+      <Route exact path={`${routeCodes.QUESTIONS}${QUESTIONS.QUESTION11}`} component={AsyncQuestion11} />
       <Route exact path={`${routeCodes.QUESTIONS}${QUESTIONS.QUESTION12}`} component={AsyncQuestion12} />
       <Route exact path={`${routeCodes.QUESTIONS}${QUESTIONS.QUESTION13}`} component={AsyncQuestion13} />
-      <Route exact path={`${routeCodes.QUESTIONS}${QUESTIONS.QUESTION11}`} component={AsyncQuestion11} /> */}
-
-      {/* <Route exact path={`${routeCodes.QUESTIONS}${QUESTIONS.QUESTION14}`} component={AsyncQuestion14} /> */}
-      
+      <Route exact path={`${routeCodes.QUESTIONS}${QUESTIONS.QUESTION14}`} component={AsyncQuestion14} />
+      <Route exact path={`${routeCodes.QUESTIONS}${QUESTIONS.QUESTION15}`} component={AsyncQuestion15} />
+      <Route exact path={`${routeCodes.QUESTIONS}${QUESTIONS.QUESTION16}`} component={AsyncQuestion16} />
+      <Route exact path={`${routeCodes.QUESTIONS}${QUESTIONS.QUESTION17}`} component={AsyncQuestion17} />
+      <Route exact path={`${routeCodes.QUESTIONS}${QUESTIONS.QUESTION18}`} component={AsyncQuestion18} />
     </AnimatedSwitch>
   );
 }
