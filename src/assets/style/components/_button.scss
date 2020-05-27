@@ -1,10 +1,18 @@
 .btn {
   font-family: 'Champagne & Limousines';
   text-transform: lowercase;
-  letter-spacing: 1.5px;
   border-radius: 0px;
   font-size: 1.5rem;
   padding-top: 0.275rem;
   padding-bottom: 0.275rem;
   width: 90%;
+
+  &:focus {
+    box-shadow:  0 0 0.2rem rgba($dark-orange, 0.5)
+  }
+  
+  &.selected {
+    background-color: $dark-orange;
+    border-color: $dark-orange;
+  }
 }

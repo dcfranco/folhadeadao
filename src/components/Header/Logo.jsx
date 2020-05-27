@@ -1,8 +1,9 @@
 import React from 'react';
+import classNames from 'classnames';
 
-function Logo({ children }) {
+function Logo({ children, className }) {
   return (
-    <div className='header-logo'>
+    <div className={classNames('header-logo', className)}>
       { children }
     </div>
   );

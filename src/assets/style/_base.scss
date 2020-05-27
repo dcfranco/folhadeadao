@@ -14,3 +14,18 @@ body {
   color: $font-color;
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.switch-wrapper {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.switch-wrapper > div {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}

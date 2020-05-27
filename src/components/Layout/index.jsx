@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { AppContext } from 'context/AppContext';
+import classNames from 'classnames';
 
 function Layout({ children }) {
+  const { isBackgroundVisible } = useContext(AppContext);
   return (
-    <main>
+    <main className={classNames({
+      'no-background': !isBackgroundVisible,
+    })}>
       { children }
     </main>
   );

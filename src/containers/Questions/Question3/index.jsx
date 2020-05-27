@@ -1,39 +1,54 @@
 import React, { Fragment } from 'react';
-import Header from 'components/Header';
-import Question from 'components/Question';
 import Image from 'components/Image';
-import Button from 'components/Button';
-import Footer from 'components/Footer';
+import { questionType } from 'constants/questions';
+import { subRouteCodes } from 'constants/routeCodes';
+import Custom from 'builders/Question/Custom';
 
 const { AVAILABLE_IMAGES } = Image
 
-function Question3() {
-  return (
-    <Fragment>
-      <Header className='text-center'>
-        <Header.Logo className='w-100'>
-          <Image src={AVAILABLE_IMAGES.MODEL_2} />
-        </Header.Logo>
-      </Header>
-      <Question>
-        <Question.Image className='mt-3 mb-3'>
-          <Image src={AVAILABLE_IMAGES.LOGO_FULL} maxWidth='60%' />
-        </Question.Image>
-        <Question.Text className='text-normal text-right'>
+const question = {
+  IMAGE: {
+    SRC: AVAILABLE_IMAGES.MODEL_2,
+    CLASSNAME: 'w-100',
+  },
+  TYPE: questionType.CUSTOM,
+  NEXT_CAPTION: 'Prosseguir',
+  NEXT_ROUTE: subRouteCodes.QUESTIONS.QUESTION4,
+  CONTENT: [
+    {
+      CODE: 'C001',
+      COMPONENT: 'Image',
+      CLASSNAME: 'mt-3 mb-3',
+      RENDER: <Image src={AVAILABLE_IMAGES.LOGO_FULL} maxWidth='60%' />,
+    },
+    {
+      CODE: 'C002',
+      COMPONENT: 'Text',
+      CLASSNAME: 'text-normal m-auto text-right mb-2',
+      RENDER: (
+        <Fragment>
           'Adão foi o primeiro e mais exclusivo homem da terra, a folha foi o
           primeiro e mais exclusivo look do homem'
           <small className='d-block'>by marlon cristiano</small>
-        </Question.Text>
-        <Question.Text className='text-primary text-smaller text-center w-100 mt-auto pb-2'>
+        </Fragment>
+      ),
+    },
+    {
+      CODE: 'C003',
+      COMPONENT: 'Text',
+      CLASSNAME: 'text-primary text-smaller text-center w-100 mt-auto pb-3',
+      RENDER: (
+        <Fragment>
           Conheça agora sobre a <strong className='d-block'>grife mais exclusiva do mundo</strong>
-        </Question.Text>
-      </Question>
-      <Footer>
-        <Button onClick={() => {}}>
-          Prosseguir
-        </Button>
-      </Footer>
-    </Fragment>
+        </Fragment>
+      ),
+    }
+  ],
+}
+
+function Question3() {
+  return (
+    <Custom question={question} />
   );
 }
 

@@ -1,42 +1,27 @@
-import React, { Fragment } from 'react';
-import Header from 'components/Header';
-import Question from 'components/Question';
+import React from 'react';
 import Image from 'components/Image';
-import Button from 'components/Button';
-import Footer from 'components/Footer';
+import { subRouteCodes } from 'constants/routeCodes';
+import { questionType } from 'constants/questions';
+import ButtonSingleChoice from 'builders/Question/ButtonSingleChoice';
 
 const { AVAILABLE_IMAGES } = Image
 
+const question = {
+  TITLE: 'Olá <strong>Daniel</strong>, o quanto você <strong>gosta de moda ?</strong>',
+  TYPE: questionType.BUTTON_SINGLE_CHOICE,
+  IMAGE: AVAILABLE_IMAGES.MODEL,
+  NEXT_CAPTION: 'Iniciar Consultoria',
+  NEXT_ROUTE: subRouteCodes.QUESTIONS.QUESTION2,
+  OPTIONS: [
+    { value: 1, label: 'pouco' },
+    { value: 2, label: 'médio' },
+    { value: 3, label: 'muito' },
+  ]
+}
+
 function Question1() {
   return (
-    <Fragment>
-      <Header>
-        <Header.Title>
-          O quanto você <strong>gosta de moda ?</strong>
-        </Header.Title>
-      </Header>
-      <Question>
-        <Question.Image>
-          <Image src={AVAILABLE_IMAGES.MODEL} />
-        </Question.Image>
-        <Question.Options>
-          <Button onClick={() => {}}>
-            pouco
-          </Button>
-          <Button onClick={() => {}}>
-            médio
-          </Button>
-          <Button onClick={() => {}}>
-            muito
-          </Button>
-        </Question.Options>
-      </Question>
-      <Footer>
-        <Button onClick={() => {}}>
-          Iniciar Consultoria
-        </Button>
-      </Footer>
-    </Fragment>
+    <ButtonSingleChoice question={question} />
   );
 }
 

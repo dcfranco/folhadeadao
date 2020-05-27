@@ -1,8 +1,9 @@
 import React from 'react';
+import classNames from 'classnames';
 
-function Options({ children }) {
+function Options({ children, className }) {
   return (
-    <div className='question-options'>
+    <div className={ classNames('question-options', className) }>
       { children }
     </div>
   );

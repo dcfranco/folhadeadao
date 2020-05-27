@@ -8,14 +8,21 @@ header {
     font-size: 1.6rem;
     width: 200px;
     line-height: 30px;
-    letter-spacing: 1.8px;
-  
+    letter-spacing: 1.6px;
+    min-height: 45px;
+
     strong {
       font-weight: bold;
     }
   }
 
   .header-logo {
+  }
 
+  .text-normal {
+    text-transform: none;
+    font-size: 1.4rem;
+    line-height: 1;
+    letter-spacing: 0.6px;
   }
 }
