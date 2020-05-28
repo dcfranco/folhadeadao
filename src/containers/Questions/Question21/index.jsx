@@ -13,7 +13,7 @@ function Question21Button() {
   const history = useHistory();
 
   return (
-    <Button onClick={ () => history.push(routeCodes.VIDEOS) } isSecondary={true} className='text-normal w-100 mt-3'>
+    <Button onClick={ () => history.push(routeCodes.VIDEOS) } className='text-normal font-weight-bold w-100 mt-3'>
       Conheça mais sobre a grife
     </Button>
   );
@@ -38,9 +38,9 @@ const question = {
       CLASSNAME: 'text-normal mx-auto mt-4 mb-4 w-80 text-center',
       RENDER: (
         <Fragment>
-          <span className='d-block'>Pronto !</span>
+          <span className='d-block text-primary font-weight-bold'>Pronto !</span>
           Agora que conhecemos mais sobre você, entraremos em contato em até 24h
-          através do seu what's app para iniciar sua <strong>consultoria online.</strong>
+          através do seu what's app para iniciar sua <strong className='text-primary'>consultoria online.</strong>
         </Fragment>
       ),
     },

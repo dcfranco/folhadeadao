@@ -16,6 +16,7 @@ const question = {
     CLASSNAME: 'w-100 mt-3 mb-3'
   },
   CLASSNAME: 'text-normal text-left w-100 mt-4',
+  OPTIONS_CLASSNAME: 'mb-auto mt-5',
   NEXT_CAPTION: 'Próxima',
   NEXT_ROUTE: subRouteCodes.QUESTIONS.QUESTION15,
   OPTIONS: [

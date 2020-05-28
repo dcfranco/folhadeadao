@@ -37,7 +37,7 @@ function Video({ question }) {
 
           return null
         })}
-        <Question.Video className='mt-3' videoId={ question.VIDEO_ID } onPlay={ () => toggleEnabled(false) } />
+        <Question.Video className='my-auto' videoId={ question.VIDEO_ID } onPlay={ () => toggleEnabled(false) } />
       </Question>
       <Footer>
         <Button disabled={ isEnabled } onClick={ () => history.push(`${routeCodes.VIDEOS}${question.NEXT_ROUTE}`) }>

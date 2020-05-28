@@ -2,4 +2,6 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
+  min-height: 40px;
 }

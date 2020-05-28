@@ -24,8 +24,9 @@ const question = {
       CLASSNAME: 'text-normal mx-auto mt-5 mb-4 w-80 text-center',
       RENDER: (
         <Fragment>
+          <span className='d-block text-primary font-weight-bold'>Pronto !</span>
           Agora que já conhece mais sobre nós, aguarde que entraremos em contato em até
-          24h através do seus what's app para iniciar sua <strong>consultoria online.</strong>
+          24h através do seus what's app para iniciar sua <strong className='text-primary'>consultoria online.</strong>
         </Fragment>
       ),
     }

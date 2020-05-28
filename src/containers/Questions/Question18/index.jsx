@@ -13,13 +13,14 @@ const question = {
   TYPE: questionType.BUTTON_SINGLE_CHOICE,
   IMAGE: {
     SRC: AVAILABLE_IMAGES.PANTS_2,
-    CLASSNAME: 'w-100 mt-3 mb-3'
+    CLASSNAME: 'w-80 mx-auto mt-2 mb-3'
   },
   LOGO: {
     SRC: AVAILABLE_IMAGES.LOGO,
     CLASSNAME: 'logo',
   },
   CLASSNAME: 'text-normal text-center w-100',
+  OPTIONS_CLASSNAME: 'mb-auto mt-2',
   NEXT_CAPTION: 'Próxima',
   NEXT_ROUTE: subRouteCodes.QUESTIONS.QUESTION19,
   OPTIONS: [

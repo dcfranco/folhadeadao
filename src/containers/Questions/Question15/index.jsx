@@ -9,7 +9,7 @@ import { useQuestion } from '../Context';
 const { AVAILABLE_IMAGES } = Image;
 
 const question = {
-  TITLE: 'Você usa camisa com <strong>brilho</strong>?',
+  TITLE: 'Você usaria a <strong>Camisa Premium</strong>, peça com leve brilho?',
   TYPE: questionType.BUTTON_SINGLE_CHOICE,
   IMAGE: {
     SRC: AVAILABLE_IMAGES.GLOW,
@@ -20,6 +20,7 @@ const question = {
     CLASSNAME: 'logo',
   },
   CLASSNAME: 'text-normal text-center w-100',
+  OPTIONS_CLASSNAME: 'mb-auto mt-5',
   NEXT_CAPTION: 'Próxima',
   NEXT_ROUTE: subRouteCodes.QUESTIONS.QUESTION16,
   OPTIONS: [

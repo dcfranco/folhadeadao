@@ -24,7 +24,7 @@ const question = {
     {
       CODE: 'C002',
       COMPONENT: 'Text',
-      CLASSNAME: 'text-normal m-auto text-center mb-2',
+      CLASSNAME: 'text-normal mt-auto text-center',
       RENDER: (
         <Fragment>
           'Adão foi o primeiro e mais exclusivo homem da terra, a folha foi o
@@ -36,7 +36,7 @@ const question = {
     {
       CODE: 'C003',
       COMPONENT: 'Text',
-      CLASSNAME: 'text-primary text-smaller text-center w-100 mt-auto pb-3',
+      CLASSNAME: 'text-primary text-smaller text-center w-100 mt-auto mb-auto pb-3',
       RENDER: (
         <Fragment>
           Conheça agora sobre a <strong className='d-block'>grife mais exclusiva do mundo</strong>
