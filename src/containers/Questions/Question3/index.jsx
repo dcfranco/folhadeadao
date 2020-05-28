@@ -14,7 +14,7 @@ const question = {
     SRC: AVAILABLE_IMAGES.LOGO,
     CLASSNAME: 'logo',
   },
-  CLASSNAME: 'text-normal mx-auto  w-100',
+  CLASSNAME: 'text-normal w-100',
   NEXT_CAPTION: 'Próxima',
   MAX: 5,
   NEXT_ROUTE: subRouteCodes.QUESTIONS.QUESTION4,

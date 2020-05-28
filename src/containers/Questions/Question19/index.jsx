@@ -8,7 +8,6 @@ import Button from 'components/Button';
 
 const { AVAILABLE_IMAGES } = Image
 
-
 function Question19CivilState() {
   const [civilState, updateCivilState] = useState(null);
 

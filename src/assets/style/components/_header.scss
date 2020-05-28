@@ -1,15 +1,14 @@
 header {
-  margin-top: 5px;
-
   h1 {
     font-family: 'Champagne & Limousines';
     text-transform: uppercase;
     font-weight: 100;
-    font-size: 1.6rem;
-    width: 200px;
+    font-size: 6.2vw;
+    width: 230px;
     line-height: 30px;
-    letter-spacing: 1.6px;
-    min-height: 45px;
+    letter-spacing: 0;
+    margin-top: map-get($spacers, 2);
+    margin-bottom: map-get($spacers, 3);
 
     strong {
       font-weight: bold;
@@ -17,24 +16,31 @@ header {
   }
 
   .header-logo {
+    margin-top: -30px;
+    margin-bottom: 10px;
   }
 
   .text-normal {
     text-transform: none;
-    font-size: 1.4rem;
+    font-size: 6vw !important;
     line-height: 1;
     letter-spacing: 0.6px;
   }
 
   .text-smaller {
-    font-size: 1.4rem;
+    font-size: 6.5vw;
     line-height: 1;
-    letter-spacing: 0.6px;
+    letter-spacing: 1px;
   }
 
-  @include media-breakpoint-down(xs) {
-    .text-normal {
-      font-size: 6vw !important;
+  @media screen and (min-height: 568px) {
+    .header-logo {
+      margin-top: -15px !important;
+    }
+
+    h1 {
+      margin-top: map-get($spacers, 3);
+      margin-bottom: map-get($spacers, 4);
     }
   }
 }

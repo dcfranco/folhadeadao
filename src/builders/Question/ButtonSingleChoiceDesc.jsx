@@ -21,16 +21,16 @@ function ButtonSingleChoiceDesc({ question }) {
 
   return (
     <Fragment>
-      <Header className='text-center mt-0'>
+      <Header className='text-center'>
         <Header.Logo className={question.LOGO.CLASSNAME}>
           <Image src={question.LOGO.SRC} maxWidth='90px' />
         </Header.Logo>
-        <Header.Title className='text-normal w-100 mt-3 mb-0'>
+        <Header.Title className='text-normal w-100'>
           <div dangerouslySetInnerHTML={ {  __html: question.TITLE } } />
         </Header.Title>
       </Header>
       <Question>
-        <Question.Container className=''>
+        <Question.Container className='h-75'>
           <Question.Image className={question.IMAGE.CLASSNAME}>
             <Image src={ question.IMAGE.SRC } />
           </Question.Image>
@@ -52,7 +52,7 @@ function ButtonSingleChoiceDesc({ question }) {
             })}
           </Question.Text>
         </Question.Container>
-        <Question.Options className='mt-auto'>
+        <Question.Options className=''>
           { question.OPTIONS.map((q) => {
             return (
               <Button key={ q.value } selected={ selected === q.value } onClick={ () => updateSelected(q.value) } >

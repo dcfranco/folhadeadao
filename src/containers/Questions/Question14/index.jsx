@@ -12,7 +12,7 @@ const question = {
   TYPE: questionType.BUTTON_SINGLE_CHOICE,
   IMAGE: {
     SRC: AVAILABLE_IMAGES.AVIATOR,
-    CLASSNAME: 'w-100 mt-4'
+    CLASSNAME: 'w-100 mt-3 mb-3'
   },
   CLASSNAME: 'text-normal text-left w-100 mt-4',
   NEXT_CAPTION: 'Próxima',

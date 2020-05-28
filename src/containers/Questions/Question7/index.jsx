@@ -11,13 +11,12 @@ const question = {
   TYPE: questionType.BUTTON_SINGLE_CHOICE,
   IMAGE: {
     SRC: AVAILABLE_IMAGES.PANTS,
-    CLASSNAME: 'w-80 mx-auto mt-4'
+    CLASSNAME: 'pb-4 px-4 mx-auto'
   },
   LOGO: {
     SRC: AVAILABLE_IMAGES.LOGO,
     CLASSNAME: 'logo',
   },
-  CLASSNAME: 'text-normal text-center w-100',
   NEXT_CAPTION: 'Próxima',
   NEXT_ROUTE: subRouteCodes.QUESTIONS.QUESTION8,
   OPTIONS: [

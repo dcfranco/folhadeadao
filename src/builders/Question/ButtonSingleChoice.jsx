@@ -11,25 +11,20 @@ import { useHistory } from 'react-router-dom';
 function ButtonSingleChoice({ question }) {
   const [selected, updateSelected] = useState(null);
   const history = useHistory();
-  
+  const hasLogo = typeof question.LOGO === 'object';
+
   return (
     <Fragment>
-      {typeof question.LOGO === 'object' ? (
-        <Header className='text-center mt-0'>
+      <Header className={hasLogo ? 'text-center' : ''}>
+        { hasLogo && (
           <Header.Logo className={question.LOGO.CLASSNAME}>
             <Image src={question.LOGO.SRC} maxWidth='90px' />
           </Header.Logo>
-          <Header.Title className='text-normal w-100 mt-3 mb-0'>
-            <div dangerouslySetInnerHTML={ {  __html: question.TITLE } } />
-          </Header.Title>
-        </Header>
-      ) : (
-        <Header>
-          <Header.Title className={question.CLASSNAME}>
-            <div dangerouslySetInnerHTML={ {  __html: question.TITLE } } />
-          </Header.Title>
-        </Header>
-      )}
+        )}
+        <Header.Title className={question.CLASSNAME || 'text-normal w-100'}>
+          <div dangerouslySetInnerHTML={ {  __html: question.TITLE } } />
+        </Header.Title>
+      </Header>
       <Question>
         {typeof question.IMAGE === 'object' ? (
           <Question.Image className={question.IMAGE.CLASSNAME}>
@@ -40,7 +35,7 @@ function ButtonSingleChoice({ question }) {
             <Image src={ question.IMAGE } />
           </Question.Image>
         )}
-        <Question.Options className={classNames('mt-auto', question.OPTIONS_CLASSNAME)}>
+        <Question.Options className={classNames(question.OPTIONS_CLASSNAME)}>
           { question.OPTIONS.map((q) => {
             return (
               <Button className={question.OPTION_CLASSNAME} key={ q.value } selected={ selected === q.value } onClick={ () => updateSelected(q.value) } >
@@ -49,7 +44,7 @@ function ButtonSingleChoice({ question }) {
             )
           })}
         </Question.Options>
-        <Question.Form>
+        <Question.Form className={ question.CLASSNAME_FORM }>
           {( question.FORM )}
         </Question.Form>
       </Question>

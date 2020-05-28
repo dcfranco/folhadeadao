@@ -7,10 +7,14 @@ import ButtonSingleChoice from 'builders/Question/ButtonSingleChoice';
 const { AVAILABLE_IMAGES } = Image
 
 const question = {
-  TITLE: 'Olá <strong>Daniel</strong>, o quanto você <strong>gosta de moda ?</strong>',
+  TITLE: 'Olá <strong class="text-primary">Daniel</strong>, o quanto você <strong>gosta de moda ?</strong>',
   TYPE: questionType.BUTTON_SINGLE_CHOICE,
-  IMAGE: AVAILABLE_IMAGES.MODEL,
+  IMAGE: {
+    SRC: AVAILABLE_IMAGES.MODEL,
+    CLASSNAME: 'w-80 mx-auto mb-4'
+  },
   NEXT_CAPTION: 'Iniciar Consultoria',
+  CLASSNAME: 'text-smaller text-left w-65',
   NEXT_ROUTE: subRouteCodes.QUESTIONS.QUESTION2,
   OPTIONS: [
     { value: 1, label: 'pouco' },

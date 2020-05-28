@@ -8,9 +8,7 @@ function Layout({ children }) {
     <main className={classNames({
       'no-background': !isBackgroundVisible,
     })}>
-      <div>
-        { children }
-      </div>
+      { children }
     </main>
   );
 }

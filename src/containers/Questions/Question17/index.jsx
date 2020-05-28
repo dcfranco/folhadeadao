@@ -12,7 +12,7 @@ const question = {
   TYPE: questionType.BUTTON_SINGLE_CHOICE,
   IMAGE: {
     SRC: AVAILABLE_IMAGES.WORKED_FABRICS,
-    CLASSNAME: 'w-100 mt-4'
+    CLASSNAME: 'w-100 mt-3 mb-3'
   },
   LOGO: {
     SRC: AVAILABLE_IMAGES.LOGO,

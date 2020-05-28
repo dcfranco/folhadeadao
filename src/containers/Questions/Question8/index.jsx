@@ -9,7 +9,7 @@ const { AVAILABLE_IMAGES } = Image;
 const question = {
   TITLE: 'Escolha <strong>3 modelos</strong> que você mais gostou, por ordem de preferência:',
   TYPE: questionType.IMAGE_MULTIPLE_CHOICE,
-  CLASSNAME: 'text-normal mx-auto w-100',
+  CLASSNAME: 'text-normal mb-3 w-100',
   NEXT_CAPTION: 'Próxima',
   MAX: 3,
   NEXT_ROUTE: subRouteCodes.QUESTIONS.QUESTION9,

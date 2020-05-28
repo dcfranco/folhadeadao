@@ -30,13 +30,13 @@ function ImageMultiplesChoices({ question }) {
 
   return (
     <Fragment>
-      <Header className='text-center mt-0'>
+      <Header className='text-center'>
         { question.LOGO && (
           <Header.Logo className={question.LOGO.CLASSNAME}>
-            <Image src={question.LOGO.SRC} maxWidth='90px' />
+            <Image src={question.LOGO.SRC} maxWidth='90px' className='m-0' />
           </Header.Logo>
         )}
-        <Header.Title className='text-normal w-100 mt-3 mb-0'>
+        <Header.Title className='text-normal w-100'>
           <div dangerouslySetInnerHTML={ {  __html: question.TITLE } } />
         </Header.Title>
       </Header>
