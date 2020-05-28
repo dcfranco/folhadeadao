@@ -6,8 +6,3 @@ export const questionType = {
   CUSTOM: 'CUSTOM',
   BUTTON_SINGLE_CHOICE_DESCRIPTION: 'BUTTON_SINGLE_CHOICE_DESCRIPTION',
 }
-const questions = [
-  {
-    code: 'Q001'
-  }
-]

@@ -12,7 +12,7 @@ header {
 
     strong {
       font-weight: bold;
-    }
+    }   
   }
 
   .header-logo {
@@ -31,6 +31,25 @@ header {
     font-size: 6.5vw;
     line-height: 1;
     letter-spacing: 1px;
+  }
+
+  @include media-breakpoint-up(md) {
+    h1 {
+      font-size: 1.6rem !important;
+    }
+
+    .text-normal {
+      text-transform: none;
+      font-size: 1.6rem !important;
+      line-height: 1;
+      letter-spacing: 0.6px;
+    }
+
+    .text-smaller {
+      font-size: 1rem;
+      line-height: 1;
+      letter-spacing: 1px;
+    }
   }
 
   @media screen and (min-height: 568px) {

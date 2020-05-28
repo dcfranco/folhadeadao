@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect, useContext, useCallback } from 'react';
+import React, { Fragment, useEffect, useContext, useCallback } from 'react';
 import Header from 'components/Header';
 import Question from 'components/Question';
 import Image from 'components/Image';
@@ -8,8 +8,7 @@ import routeCodes from 'constants/routeCodes';
 import { useHistory } from 'react-router-dom';
 import { AppContext } from 'context/AppContext';
 
-function ImageMultiplesChoices({ question }) {
-  const [selected, updateSelected] = useState([]);
+function ImageMultiplesChoices({ question, selected, updateSelected }) {
   const history = useHistory();
   const {isBackgroundVisible, toggleBackgroundVisible} = useContext(AppContext);
 
@@ -26,7 +25,7 @@ function ImageMultiplesChoices({ question }) {
     } else {
       updateSelected(selected.filter((sel) => sel !== value))
     }
-  }, [selected, question])
+  }, [selected, question.MAX, updateSelected])
 
   return (
     <Fragment>

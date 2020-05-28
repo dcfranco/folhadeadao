@@ -3,6 +3,7 @@ import Image from 'components/Image';
 import { subRouteCodes } from 'constants/routeCodes';
 import { questionType } from 'constants/questions';
 import ImageMultiplesChoices from 'builders/Question/ImageMultiplesChoices';
+import { useQuestion } from '../Context';
 
 const { AVAILABLE_IMAGES } = Image;
 
@@ -23,12 +24,14 @@ const question = {
     { value: 6, image: AVAILABLE_IMAGES.SHOES_6, label: 'F' },
     { value: 7, image: AVAILABLE_IMAGES.SHOES_7, label: 'G' },
     { value: 8, image: AVAILABLE_IMAGES.SHOES_8, label: 'H' },
+    { value: 9, image: AVAILABLE_IMAGES.SHOES_9, label: 'I' },
   ],
 }
 
 function Question8() {
+  const {question: result, update} = useQuestion(8)
   return (
-    <ImageMultiplesChoices question={question} />
+    <ImageMultiplesChoices question={question} selected={result.value || []} updateSelected={(value) => update({ value })} />
   );
 }
 

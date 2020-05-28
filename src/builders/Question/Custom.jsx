@@ -7,7 +7,7 @@ import Footer from 'components/Footer';
 import { useHistory } from 'react-router-dom';
 import routeCodes from 'constants/routeCodes';
 
-function Custom({ question }) {
+function Custom({ question, disabled }) {
   const history = useHistory();
 
   return (
@@ -66,12 +66,20 @@ function Custom({ question }) {
             )
           }
 
+          if (content.COMPONENT === 'Element') {
+            return (
+              <Fragment key={content.CODE}>
+                { content.RENDER }
+              </Fragment>
+            )
+          }
+
           return null
         })}
       </Question>
       <Footer>
         { question.NEXT_ROUTE && (
-          <Button onClick={ () => history.push(`${routeCodes.QUESTIONS}${question.NEXT_ROUTE}`) }>
+          <Button onClick={ () => history.push(`${routeCodes.QUESTIONS}${question.NEXT_ROUTE}`) } disabled={ disabled }>
             { question.NEXT_CAPTION }
           </Button>
         )}

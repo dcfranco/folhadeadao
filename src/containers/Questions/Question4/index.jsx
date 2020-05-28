@@ -3,6 +3,7 @@ import { subRouteCodes } from 'constants/routeCodes';
 import { questionType } from 'constants/questions';
 import Image from 'components/Image';
 import ButtonSingleChoiceDesc from 'builders/Question/ButtonSingleChoiceDesc';
+import { useQuestion } from '../Context';
 
 const { AVAILABLE_IMAGES } = Image;
 
@@ -15,6 +16,7 @@ const question = {
     CLASSNAME: 'logo',
   },
   IMAGE: {
+    MAX_WIDTH: '205px',
     SRC: AVAILABLE_IMAGES.SHIRT_V,
     CLASSNAME: 'w-65 position-absolute ml-n3',
   },
@@ -34,8 +36,9 @@ const question = {
 
 
 function Question4() {
+  const {question: result, update} = useQuestion(4)
   return (
-    <ButtonSingleChoiceDesc question={ question } />
+    <ButtonSingleChoiceDesc question={question} selected={result.value} updateSelected={(value) => update({ value })} />
   );
 }
 

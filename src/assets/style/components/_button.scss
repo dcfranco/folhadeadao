@@ -2,7 +2,7 @@
   font-family: 'Champagne & Limousines';
   text-transform: lowercase;
   border-radius: 0px;
-  font-size: 1.5rem;
+  font-size: 6vw;
   padding-top: 0.275rem;
   padding-bottom: 0.275rem;
   width: 90%;
@@ -10,9 +10,22 @@
   &:focus {
     box-shadow:  0 0 0.2rem rgba($dark-orange, 0.5)
   }
+
+  &.text-normal {
+    text-transform: unset;
+    font-size: 5vw;
+  }
   
   &.selected {
     background-color: $dark-orange;
     border-color: $dark-orange;
+  }
+
+  @include media-breakpoint-up(md) {
+    font-size: 1.5rem !important;
+
+    &.text-normal {
+      font-size: 1.4rem !important;
+    }
   }
 }

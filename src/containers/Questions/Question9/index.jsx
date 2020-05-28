@@ -5,6 +5,7 @@ import { questionType } from 'constants/questions';
 import ButtonSingleChoice from 'builders/Question/ButtonSingleChoice';
 import Question9Form from './Form';
 import { AppContext } from 'context/AppContext';
+import { useQuestion } from '../Context';
 
 const { AVAILABLE_IMAGES } = Image;
 
@@ -37,10 +38,11 @@ const question = {
 
 function Question9() {
   const {toggleBackgroundVisible} = useContext(AppContext);
+  const {question: result, update} = useQuestion(9)
 
   useEffect(() => toggleBackgroundVisible(false), [toggleBackgroundVisible]);
   return (
-    <ButtonSingleChoice question={question}  />
+    <ButtonSingleChoice question={question} unblock={result.request} selected={result.theme} updateSelected={(value) => update({ theme: value })}/>
   );
 }
 

@@ -1,11 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useQuestion } from '../Context';
 
-function Question9Form({ className, label }) {
-  const [value, updateValue] = useState('');
+function Question9Form(props) {
+  const { className, label } = props
+  const { question, update } = useQuestion(9);
+
   return (
     <div className={ className }>
       <label>{label}</label>
-      <input type='text' value={value} onChange={({currentTarget}) => updateValue(currentTarget.value)} />
+      <input type='text' value={question.request || ''} onChange={({currentTarget}) => update({ request: currentTarget.value })} />
     </div>
   );
 }

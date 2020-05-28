@@ -4,7 +4,6 @@ import routeCodes, { subRouteCodes } from 'constants/routeCodes';
 import AsyncComponentHOC from 'components/HOC/AsyncComponentHOC';
 import { AnimatedSwitch } from 'react-router-transition';
 
-
 const AsyncQuestion1 = AsyncComponentHOC(() => import('containers/Questions/Question1'))
 const AsyncQuestion2 = AsyncComponentHOC(() => import('containers/Questions/Question2'))
 const AsyncQuestion3 = AsyncComponentHOC(() => import('containers/Questions/Question3'))
@@ -25,6 +24,7 @@ const AsyncQuestion17 = AsyncComponentHOC(() => import('containers/Questions/Que
 const AsyncQuestion18 = AsyncComponentHOC(() => import('containers/Questions/Question18'))
 const AsyncQuestion19 = AsyncComponentHOC(() => import('containers/Questions/Question19'))
 const AsyncQuestion20 = AsyncComponentHOC(() => import('containers/Questions/Question20'))
+const AsyncQuestion21 = AsyncComponentHOC(() => import('containers/Questions/Question21'))
 
 const { QUESTIONS } = subRouteCodes
 
@@ -56,6 +56,7 @@ function Questions() {
       <Route exact path={`${routeCodes.QUESTIONS}${QUESTIONS.QUESTION18}`} component={AsyncQuestion18} />
       <Route exact path={`${routeCodes.QUESTIONS}${QUESTIONS.QUESTION19}`} component={AsyncQuestion19} />
       <Route exact path={`${routeCodes.QUESTIONS}${QUESTIONS.QUESTION20}`} component={AsyncQuestion20} />
+      <Route exact path={`${routeCodes.QUESTIONS}${QUESTIONS.QUESTION21}`} component={AsyncQuestion21} />
       <Redirect to={`${routeCodes.QUESTIONS}${QUESTIONS.QUESTION1}`} />
     </AnimatedSwitch>
   );

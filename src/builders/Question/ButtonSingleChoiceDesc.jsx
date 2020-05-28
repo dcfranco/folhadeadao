@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect, useContext } from 'react';
+import React, { Fragment, useEffect, useContext } from 'react';
 import Header from 'components/Header';
 import Question from 'components/Question';
 import Image from 'components/Image';
@@ -8,8 +8,7 @@ import routeCodes from 'constants/routeCodes';
 import { useHistory } from 'react-router-dom';
 import { AppContext } from 'context/AppContext';
 
-function ButtonSingleChoiceDesc({ question }) {
-  const [selected, updateSelected] = useState(null);
+function ButtonSingleChoiceDesc({ question, selected, updateSelected }) {
   const history = useHistory();
   const {isBackgroundVisible, toggleBackgroundVisible} = useContext(AppContext);
 
@@ -32,7 +31,7 @@ function ButtonSingleChoiceDesc({ question }) {
       <Question>
         <Question.Container className='h-75'>
           <Question.Image className={question.IMAGE.CLASSNAME}>
-            <Image src={ question.IMAGE.SRC } />
+            <Image src={ question.IMAGE.SRC } maxWidth={question.IMAGE.MAX_WIDTH} />
           </Question.Image>
           <Question.Text className='question-description text-center pl-2'>
             { question.DESCRIPTION.map((q) => {

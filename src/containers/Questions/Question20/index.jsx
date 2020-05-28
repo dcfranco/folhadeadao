@@ -1,53 +1,56 @@
-import React, { Fragment, useContext, useEffect } from 'react';
+import React from 'react';
 import Image from 'components/Image';
 import { questionType } from 'constants/questions';
+import { subRouteCodes } from 'constants/routeCodes';
 import Custom from 'builders/Question/Custom';
-import { AppContext } from 'context/AppContext';
+import Question20Form from './Form';
+import Button from 'components/Button';
+import { useQuestion } from '../Context';
 
 const { AVAILABLE_IMAGES } = Image
+
+function Question20CivilState() {
+  const { question, update } = useQuestion(20);
+
+  return (
+    <div className='d-flex w-50 mx-auto mt-3 flex-column'>
+      <Button className='d-block mb-2 p-0' selected={ question.civilState === 1 } onClick={ () => update({ civilState: 1 }) }>solteiro</Button>
+      <Button className='d-block mb-2 p-0' selected={ question.civilState === 2 } onClick={ () => update({ civilState: 2 }) }>noivo</Button>
+      <Button className='d-block mb-2 p-0' selected={ question.civilState === 3 } onClick={ () => update({ civilState: 3 }) }>casado</Button>
+    </div>
+  );
+}
 
 const question = {
   LOGO: {
     SRC: AVAILABLE_IMAGES.LOGO,
     CLASSNAME: 'logo',
   },
+  TITLE: 'Qual sua profissão e seu estado civíl? Pergunto isso por eventuais campanhas de benefícios segmentados.',
   TYPE: questionType.CUSTOM,
+  NEXT_CAPTION: 'Prosseguir',
+  NEXT_ROUTE: subRouteCodes.QUESTIONS.QUESTION21,
   CONTENT: [
     {
-      CODE: 'C001',
-      COMPONENT: 'Image',
-      CLASSNAME: 'my-auto',
-      RENDER: <Image src={AVAILABLE_IMAGES.MODEL_2} />,
-    },
-    {
       CODE: 'C002',
-      COMPONENT: 'Text',
-      CLASSNAME: 'text-normal mx-auto',
-      RENDER: (
-        <Fragment>
-          Obrigado!
-        </Fragment>
-      ),
+      COMPONENT: 'Options',
+      CLASSNAME: 'mt-auto mb-auto',
+      RENDER: <Question20CivilState />,
     },
     {
       CODE: 'C003',
-      COMPONENT: 'Text',
-      CLASSNAME: 'text-normal mx-auto mb-auto mt-5 w-80 text-center',
-      RENDER: (
-        <Fragment>
-          Entraremos em contato em até 24h através do seu what's app para iniciar sua consultoria e liberar suas compras.
-        </Fragment>
-      ),
+      CLASSNAME: 'mb-auto',
+      COMPONENT: 'Form',
+      RENDER: <Question20Form className='w-90' label='Qual sua profissão?' />,
     }
   ],
 }
 
 function Question20() {
-  const {toggleBackgroundVisible} = useContext(AppContext);
+  const { question: result } = useQuestion(20);
 
-  useEffect(() => toggleBackgroundVisible(true), [toggleBackgroundVisible]);
   return (
-    <Custom question={question} />
+    <Custom question={question} disabled={ !result.civilState || !result.profession } />
   );
 }
 

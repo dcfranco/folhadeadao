@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment } from 'react';
 import classNames from 'classnames';
 import Header from 'components/Header';
 import Question from 'components/Question';
@@ -8,8 +8,7 @@ import Footer from 'components/Footer';
 import routeCodes from 'constants/routeCodes';
 import { useHistory } from 'react-router-dom';
 
-function ButtonSingleChoice({ question }) {
-  const [selected, updateSelected] = useState(null);
+function ButtonSingleChoice({ question, selected, updateSelected, unblock }) {
   const history = useHistory();
   const hasLogo = typeof question.LOGO === 'object';
 
@@ -49,7 +48,7 @@ function ButtonSingleChoice({ question }) {
         </Question.Form>
       </Question>
       <Footer>
-        <Button onClick={ () => history.push(`${routeCodes.QUESTIONS}${question.NEXT_ROUTE}`) } disabled={ selected === null }>
+        <Button onClick={ () => history.push(`${routeCodes.QUESTIONS}${question.NEXT_ROUTE}`) } disabled={ !selected && !unblock }>
           { question.NEXT_CAPTION }
         </Button>
       </Footer>

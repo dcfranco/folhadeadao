@@ -1,35 +1,38 @@
+
 import React from 'react';
-import Image from 'components/Image';
 import { subRouteCodes } from 'constants/routeCodes';
 import { questionType } from 'constants/questions';
-import ImageMultiplesChoices from 'builders/Question/ImageMultiplesChoices';
+import Image from 'components/Image';
+import ButtonSingleChoice from 'builders/Question/ButtonSingleChoice';
+import { useQuestion } from '../Context';
 
 const { AVAILABLE_IMAGES } = Image;
 
 const question = {
-  TITLE: 'Quais produtos você tem maior necessidade no momento, escolha 3 por ordem de prioridade:',
-  TYPE: questionType.IMAGE_MULTIPLE_CHOICE,
-  CLASSNAME: 'text-normal mx-auto w-100',
+  TITLE: 'Você usa ou usaria o estilo que as calças de alfaiataria oferecem ?',
+  TYPE: questionType.BUTTON_SINGLE_CHOICE,
+  IMAGE: {
+    SRC: AVAILABLE_IMAGES.PANTS_2,
+    CLASSNAME: 'w-100 mt-3 mb-3'
+  },
+  LOGO: {
+    SRC: AVAILABLE_IMAGES.LOGO,
+    CLASSNAME: 'logo',
+  },
+  CLASSNAME: 'text-normal text-center w-100',
   NEXT_CAPTION: 'Próxima',
-  MAX: 3,
   NEXT_ROUTE: subRouteCodes.QUESTIONS.QUESTION19,
-  OPTIONS_CLASSNAME: 'w-30 m-1',
   OPTIONS: [
-    { value: 1, image: AVAILABLE_IMAGES.BLANK_SHIRTS, label: 'A' },
-    { value: 2, image: AVAILABLE_IMAGES.BLANK_PANTS, label: 'B' },
-    { value: 3, image: AVAILABLE_IMAGES.BLANK_JACKET, label: 'C' },
-    { value: 4, image: AVAILABLE_IMAGES.BLANK_T_SHIRTS, label: 'D' },
-    { value: 5, image: AVAILABLE_IMAGES.BLANK_SUITS, label: 'E' },
-    { value: 6, image: AVAILABLE_IMAGES.BLANK_SHORTS, label: 'F' },
-    { value: 7, image: AVAILABLE_IMAGES.BLANK_SHOES, label: 'G' },
-    { value: 8, image: AVAILABLE_IMAGES.BLANK_GLASSES, label: 'H' },
-    { value: 9, image: AVAILABLE_IMAGES.BLANK_PERFUME, label: 'I' },
+    { value: 1, label: 'Sim' },
+    { value: 2, label: 'Não' },
   ],
 }
 
+
 function Question18() {
+  const {question: result, update} = useQuestion(18)
   return (
-    <ImageMultiplesChoices question={question} />
+    <ButtonSingleChoice question={question} selected={result.value} updateSelected={(value) => update({ value })}/>
   );
 }
 

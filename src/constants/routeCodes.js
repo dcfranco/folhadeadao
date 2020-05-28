@@ -1,6 +1,7 @@
 const routeCodes = {
   INDEX: '/',
   QUESTIONS: '/questions',
+  VIDEOS: '/videos',
 }
 
 export const subRouteCodes = {
@@ -26,6 +27,14 @@ export const subRouteCodes = {
     QUESTION19: '/19',
     QUESTION20: '/20',
     QUESTION21: '/21',
+  },
+
+  VIDEOS: {
+    VIDEO1: '/1',
+    VIDEO2: '/2',
+    VIDEO3: '/3',
+    VIDEO4: '/4',
+    VIDEO5: '/5',
   },
 }
 

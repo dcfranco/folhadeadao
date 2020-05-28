@@ -4,6 +4,7 @@ import { subRouteCodes } from 'constants/routeCodes';
 import { questionType } from 'constants/questions';
 import ImageMultiplesChoices from 'builders/Question/ImageMultiplesChoices';
 import { AppContext } from 'context/AppContext';
+import { useQuestion } from '../Context';
 
 const { AVAILABLE_IMAGES } = Image;
 
@@ -40,10 +41,11 @@ const question = {
 
 function Question3() {
   const {toggleBackgroundVisible} = useContext(AppContext);
+  const {question: result, update} = useQuestion(3)
 
   useEffect(() => toggleBackgroundVisible(false), [toggleBackgroundVisible]);
   return (
-    <ImageMultiplesChoices question={question} />
+    <ImageMultiplesChoices question={question} selected={result.value || []} updateSelected={(value) => update({ value })} />
   );
 }
 

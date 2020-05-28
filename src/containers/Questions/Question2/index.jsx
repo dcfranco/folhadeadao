@@ -24,7 +24,7 @@ const question = {
     {
       CODE: 'C002',
       COMPONENT: 'Text',
-      CLASSNAME: 'text-normal m-auto text-right mb-2',
+      CLASSNAME: 'text-normal m-auto text-center mb-2',
       RENDER: (
         <Fragment>
           'Adão foi o primeiro e mais exclusivo homem da terra, a folha foi o

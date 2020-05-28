@@ -4,22 +4,21 @@ import { questionType } from 'constants/questions';
 import Video from 'builders/Question/Video';
 
 const question = {
-  TITLE: 'Video',
+  TITLE: 'Conheça',
   TYPE: questionType.VIDEO,
   NEXT_CAPTION: 'Prosseguir',
-  NEXT_ROUTE: subRouteCodes.QUESTIONS.QUESTION7,
+  NEXT_ROUTE: subRouteCodes.VIDEOS.VIDEO4,
   TEXT: [
-    'Fábrica de armaduras, <br /> <strong className="d-block">consultoria online</strong> <strong className="d-block">& produtos.</strong>',
-    { className: 'small mt-3', content: 'Personalize suas preferências e descubra o melhor da folha de adão para você' },
+    'Exclusividade ao extremo, <br /> <strong className="d-block">pioneirismo</strong> & <strong className="d-block">originalidade.</strong>',
     { className: 'text-primary w-75 mt-3', content: 'Assista o vídeo e prossiga...' },
   ],
   VIDEO_ID: 'mJlMLCjFZ8c',
 }
 
-function Question6() {
+function Video3() {
   return (
     <Video question={question} />
   );
 }
 
-export default Question6;
+export default Video3;

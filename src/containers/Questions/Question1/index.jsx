@@ -3,6 +3,7 @@ import Image from 'components/Image';
 import { subRouteCodes } from 'constants/routeCodes';
 import { questionType } from 'constants/questions';
 import ButtonSingleChoice from 'builders/Question/ButtonSingleChoice';
+import { useQuestion } from '../Context';
 
 const { AVAILABLE_IMAGES } = Image
 
@@ -24,8 +25,9 @@ const question = {
 }
 
 function Question1() {
+  const {question: result, update} = useQuestion(1)
   return (
-    <ButtonSingleChoice question={question} />
+    <ButtonSingleChoice question={question} selected={result.value} updateSelected={(value) => update({ value })}/>
   );
 }
 
