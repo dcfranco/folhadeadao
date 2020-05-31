@@ -4,7 +4,7 @@ import { subRouteCodes } from 'constants/routeCodes';
 import { questionType } from 'constants/questions';
 import Image from 'components/Image';
 import ButtonSingleChoice from 'builders/Question/ButtonSingleChoice';
-import { useQuestion } from '../Context';
+import { useQuestion } from 'context/QuestionContext';
 
 const { AVAILABLE_IMAGES } = Image;
 

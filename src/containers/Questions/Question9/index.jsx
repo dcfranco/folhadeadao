@@ -5,7 +5,7 @@ import { questionType } from 'constants/questions';
 import ButtonSingleChoice from 'builders/Question/ButtonSingleChoice';
 import Question9Form from './Form';
 import { AppContext } from 'context/AppContext';
-import { useQuestion } from '../Context';
+import { useQuestion } from 'context/QuestionContext';
 
 const { AVAILABLE_IMAGES } = Image;
 

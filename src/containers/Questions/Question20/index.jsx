@@ -5,7 +5,7 @@ import { subRouteCodes } from 'constants/routeCodes';
 import Custom from 'builders/Question/Custom';
 import Question20Form from './Form';
 import Button from 'components/Button';
-import { useQuestion } from '../Context';
+import { useQuestion } from 'context/QuestionContext';
 
 const { AVAILABLE_IMAGES } = Image
 

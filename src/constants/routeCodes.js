@@ -1,7 +1,8 @@
 const routeCodes = {
-  INDEX: '/',
-  QUESTIONS: '/questions',
-  VIDEOS: '/videos',
+  INDEX: ['/', '/:token'],
+  QUESTIONS: '/question',
+  VIDEOS: '/video',
+  FEEDBACK: '/feedback',
 }
 
 export const subRouteCodes = {
@@ -36,6 +37,10 @@ export const subRouteCodes = {
     VIDEO4: '/4',
     VIDEO5: '/5',
   },
+
+  FEEDBACKS: {
+    EXPIRED: '/expired'
+  }
 }
 
 export default routeCodes

@@ -6,7 +6,7 @@ import useFetch from 'hooks/useFetch';
 const { FEEDBACKS, QUESTIONS } = subRouteCodes
 
 function Main() {
-  const { token } = useParams();
+  // const { session } = useParams();
 
   const { response } = useFetch('http://www.mocky.io/v2/5ed1082e3500004a00ffa1e3');
   if (!response) {

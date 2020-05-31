@@ -4,7 +4,7 @@ import { subRouteCodes } from 'constants/routeCodes';
 import { questionType } from 'constants/questions';
 import ImageMultiplesChoices from 'builders/Question/ImageMultiplesChoices';
 import { AppContext } from 'context/AppContext';
-import { useQuestion } from '../Context';
+import { useQuestion } from 'context/QuestionContext';
 
 const { AVAILABLE_IMAGES } = Image;
 

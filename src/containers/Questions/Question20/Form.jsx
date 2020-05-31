@@ -1,5 +1,5 @@
 import React from 'react';
-import { useQuestion } from '../Context';
+import { useQuestion } from 'context/QuestionContext';
 
 function Question20Form(props) {
   const { className, label } = props
