@@ -1,22 +1,30 @@
-import React, { Fragment, useEffect, useContext } from 'react';
+import React, { Fragment, useEffect, useContext, useCallback } from 'react';
 import Header from 'components/Header';
 import Question from 'components/Question';
 import Image from 'components/Image';
 import Button from 'components/Button';
 import Footer from 'components/Footer';
 import routeCodes from 'constants/routeCodes';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useRouteMatch } from 'react-router-dom';
 import { AppContext } from 'context/AppContext';
+import { InfoContext } from 'context/InfoContext';
 
 function ButtonSingleChoiceDesc({ question, selected, updateSelected }) {
   const history = useHistory();
   const {isBackgroundVisible, toggleBackgroundVisible} = useContext(AppContext);
+  const { url: path } = useRouteMatch(`${routeCodes.FUNNEL}${routeCodes.QUESTIONS}`)
+  const { nextQuestion } = useContext(InfoContext)
 
   useEffect(() => {
     if (isBackgroundVisible) {
       toggleBackgroundVisible(false);
     }
   }, [isBackgroundVisible, toggleBackgroundVisible])
+
+  const onNext = useCallback(() => {
+    nextQuestion(question.CODE)
+    history.push(`${path}${question.NEXT_ROUTE}`, { code: question.CODE })
+  }, [history, nextQuestion, path, question.CODE, question.NEXT_ROUTE])
 
   return (
     <Fragment>
@@ -62,7 +70,7 @@ function ButtonSingleChoiceDesc({ question, selected, updateSelected }) {
         </Question.Options>
       </Question>
       <Footer>
-        <Button onClick={ () => history.push(`${routeCodes.QUESTIONS}${question.NEXT_ROUTE}`) } disabled={ selected === null }>
+        <Button onClick={onNext} disabled={ selected === null }>
           { question.NEXT_CAPTION }
         </Button>
       </Footer>

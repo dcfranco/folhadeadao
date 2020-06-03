@@ -5,12 +5,15 @@ import Image from 'components/Image';
 import Button from 'components/Button';
 import Footer from 'components/Footer';
 import routeCodes from 'constants/routeCodes';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useRouteMatch } from 'react-router-dom';
 import { AppContext } from 'context/AppContext';
+import { InfoContext } from 'context/InfoContext';
 
 function ImageMultiplesChoices({ question, selected, updateSelected }) {
   const history = useHistory();
   const {isBackgroundVisible, toggleBackgroundVisible} = useContext(AppContext);
+  const { url: path } = useRouteMatch(`${routeCodes.FUNNEL}${routeCodes.QUESTIONS}`)
+  const { nextQuestion } = useContext(InfoContext)
 
   useEffect(() => {
     if (isBackgroundVisible) {
@@ -26,6 +29,13 @@ function ImageMultiplesChoices({ question, selected, updateSelected }) {
       updateSelected(selected.filter((sel) => sel !== value))
     }
   }, [selected, question.MAX, updateSelected])
+
+
+  const onNext = useCallback(() => {
+    nextQuestion(question.CODE)
+    history.push(`${path}${question.NEXT_ROUTE}`, { code: question.CODE })
+  }, [history, nextQuestion, path, question.CODE, question.NEXT_ROUTE])
+
 
   return (
     <Fragment>
@@ -51,7 +61,7 @@ function ImageMultiplesChoices({ question, selected, updateSelected }) {
         </Question.Options>
       </Question>
       <Footer>
-        <Button onClick={ () => history.push(`${routeCodes.QUESTIONS}${question.NEXT_ROUTE}`) } disabled={ selected.length !== question.MAX }>
+        <Button onClick={onNext} disabled={ selected.length !== question.MAX }>
           { question.NEXT_CAPTION }
         </Button>
       </Footer>

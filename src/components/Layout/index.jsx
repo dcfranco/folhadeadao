@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { AppContext } from 'context/AppContext';
 import classNames from 'classnames';
 
-function Layout({ children }) {
+const Layout = React.memo(({ children }) => {
   const { isBackgroundVisible } = useContext(AppContext);
   return (
     <main className={classNames({
@@ -11,6 +11,6 @@ function Layout({ children }) {
       { children }
     </main>
   );
-}
+})
 
 export default Layout;

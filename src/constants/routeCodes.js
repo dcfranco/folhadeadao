@@ -1,5 +1,6 @@
 const routeCodes = {
-  INDEX: ['/', '/:token'],
+  INDEX: '/',
+  FUNNEL: '/:token',
   QUESTIONS: '/question',
   VIDEOS: '/video',
   FEEDBACK: '/feedback',
@@ -39,7 +40,8 @@ export const subRouteCodes = {
   },
 
   FEEDBACKS: {
-    EXPIRED: '/expired'
+    EXPIRED: '/expired',
+    NOTFOUND: '/not-found'
   }
 }
 

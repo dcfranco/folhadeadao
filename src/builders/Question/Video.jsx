@@ -18,10 +18,10 @@ function Video({ question }) {
         </Header.Title>
       </Header>
       <Question>
-        { question.TEXT.map((q) => {
+        { question.TEXT.map((q, i) => {
           if (typeof q === 'object') {
             return (
-              <Question.Text className={ q.className }>
+              <Question.Text key={`${i}-o`} className={ q.className }>
                 <span dangerouslySetInnerHTML={ {  __html: q.content } } />
               </Question.Text>
             )
@@ -29,7 +29,7 @@ function Video({ question }) {
 
           if (typeof q === 'string') {
             return (
-              <Question.Text>
+              <Question.Text key={`${i}-s`}>
                 <span dangerouslySetInnerHTML={ {  __html: q } } />
               </Question.Text>
             )
@@ -40,7 +40,7 @@ function Video({ question }) {
         <Question.Video className='my-auto' videoId={ question.VIDEO_ID } onPlay={ () => toggleEnabled(false) } />
       </Question>
       <Footer>
-        <Button disabled={ isEnabled } onClick={ () => history.push(`${routeCodes.VIDEOS}${question.NEXT_ROUTE}`) }>
+        <Button disabled={ isEnabled } onClick={ () => history.push(`${routeCodes.VIDEOS}${question.NEXT_ROUTE}`, { code: question.CODE }) }>
           { question.NEXT_CAPTION }
         </Button>
       </Footer>

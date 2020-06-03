@@ -1,14 +1,22 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useCallback, useContext } from 'react';
 import Header from 'components/Header';
 import Question from 'components/Question';
 import Image from 'components/Image';
 import Button from 'components/Button';
 import Footer from 'components/Footer';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useRouteMatch } from 'react-router-dom';
 import routeCodes from 'constants/routeCodes';
+import { InfoContext } from 'context/InfoContext';
 
-function Custom({ question, disabled }) {
+function Custom({ question, disabled, value = 'true' }) {
   const history = useHistory();
+  const { url: path } = useRouteMatch(`${routeCodes.FUNNEL}`)
+  const { nextQuestion } = useContext(InfoContext)
+  
+  const onNext = useCallback(() => {
+    nextQuestion(question.CODE)
+    history.push(`${path}${question.NEXT_ROUTE}`, { code: question.CODE })
+  }, [history, nextQuestion, path, question.CODE, question.NEXT_ROUTE])
 
   return (
     <Fragment>
@@ -79,7 +87,7 @@ function Custom({ question, disabled }) {
       </Question>
       <Footer>
         { question.NEXT_ROUTE && (
-          <Button onClick={ () => history.push(`${routeCodes.QUESTIONS}${question.NEXT_ROUTE}`) } disabled={ disabled }>
+          <Button onClick={onNext} disabled={ disabled }>
             { question.NEXT_CAPTION }
           </Button>
         )}

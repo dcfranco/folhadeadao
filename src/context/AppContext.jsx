@@ -1,4 +1,4 @@
-import React, { createContext, useState, useContext } from 'react';
+import React, { createContext, useState, useContext, useEffect } from 'react';
 
 export const AppContext = createContext({
   hash: null,
@@ -6,6 +6,9 @@ export const AppContext = createContext({
 
   userInfo: null,
   updateUserInfo: () => false,
+
+  funnelInfo: null,
+  updateFunnelInfo: () => false,
 
   isBackgroundVisible: true,
   toggleBackgroundVisible: () => true
@@ -16,12 +19,13 @@ const { Provider, Consumer } = AppContext;
 export const AppContextProvider = ({children}) => {
   const [isBackgroundVisible, toggleBackgroundVisible] = useState(true)
   const [userInfo, updateUserInfo] = useState(null)
+  const [funnelInfo, updateFunnelInfo] = useState({})
   
   return (
     <Provider
       value={{
         userInfo,
-        updateUserInfo,
+        funnelInfo,
         isBackgroundVisible,
         toggleBackgroundVisible,
       }}
@@ -50,5 +54,15 @@ export function useUserInfo() {
   return {
     userInfo,
     updateUserInfo,
+  }
+}
+
+
+export function useFunnelInfo() {
+  const { funnelInfo, updateFunnelInfo } = useContext(AppContext);
+
+  return {
+    funnelInfo,
+    updateFunnelInfo,
   }
 }

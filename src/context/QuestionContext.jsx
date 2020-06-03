@@ -1,6 +1,4 @@
 import React, { createContext, useState, useContext } from 'react';
-import { useRouteMatch } from 'react-router-dom';
-import routeCodes from 'constants/routeCodes';
 
 export const QuestionContext = createContext({
   results: [],
@@ -11,8 +9,7 @@ const { Provider, Consumer } = QuestionContext;
 
 export const QuestionContextProvider = ({children}) => {
   const [results, updateResults] = useState([])
-  const tst = useRouteMatch(`${routeCodes.INDEX}${routeCodes.QUESTIONS}`);
-  console.log(tst)
+
   return (
     <Provider
       value={{

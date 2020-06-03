@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useCallback, useContext } from 'react';
 import classNames from 'classnames';
 import Header from 'components/Header';
 import Question from 'components/Question';
@@ -6,11 +6,19 @@ import Image from 'components/Image';
 import Button from 'components/Button';
 import Footer from 'components/Footer';
 import routeCodes from 'constants/routeCodes';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useRouteMatch } from 'react-router-dom';
+import { InfoContext } from 'context/InfoContext';
 
 function ButtonSingleChoice({ question, selected, updateSelected, unblock }) {
   const history = useHistory();
   const hasLogo = typeof question.LOGO === 'object';
+  const { url: path } = useRouteMatch(`${routeCodes.FUNNEL}${routeCodes.QUESTIONS}`)
+  const { nextQuestion } = useContext(InfoContext)
+
+  const onNext = useCallback(() => {
+    nextQuestion(question.CODE)
+    history.push(`${path}${question.NEXT_ROUTE}`, { code: question.CODE })
+  }, [history, nextQuestion, path, question.CODE, question.NEXT_ROUTE])
 
   return (
     <Fragment>
@@ -48,7 +56,7 @@ function ButtonSingleChoice({ question, selected, updateSelected, unblock }) {
         </Question.Form>
       </Question>
       <Footer>
-        <Button onClick={ () => history.push(`${routeCodes.QUESTIONS}${question.NEXT_ROUTE}`) } disabled={ !selected && !unblock }>
+        <Button onClick={onNext} disabled={ !selected && !unblock }>
           { question.NEXT_CAPTION }
         </Button>
       </Footer>

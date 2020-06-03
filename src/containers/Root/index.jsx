@@ -2,36 +2,38 @@ import React from 'react'
 import {
   BrowserRouter as Router,
   Switch,
-  Route
+  Route,
+  Redirect
 } from 'react-router-dom'
 
 import Layout from 'components/Layout'
-import routeCodes from 'constants/routeCodes'
+import routeCodes, { subRouteCodes } from 'constants/routeCodes'
 import AsyncComponentHOC from 'components/HOC/AsyncComponentHOC'
 import { AppContextProvider } from 'context/AppContext'
 import { QuestionContextProvider } from 'context/QuestionContext';
 
 // Lazy Loading
-const AsyncQuestions = AsyncComponentHOC(() => import('containers/Questions'))
+const AsyncFunnel = AsyncComponentHOC(() => import('containers/Funnel'))
 const AsyncVideos = AsyncComponentHOC(() => import('containers/Videos'))
-const AsyncMain = AsyncComponentHOC(() => import('containers/Main'))
+const AsyncFeedback = AsyncComponentHOC(() => import('containers/Feedback'))
 
-function Root() {
+const Root = React.memo(() => {
   return (
     <Router>
       <AppContextProvider>
         <QuestionContextProvider>
           <Layout>
             <Switch>
-              <Route path={routeCodes.QUESTIONS} component={AsyncQuestions} />
+              <Route path={routeCodes.FEEDBACK} component={AsyncFeedback} />
               <Route path={routeCodes.VIDEOS} component={AsyncVideos} />
-              <Route exact path={routeCodes.INDEX} component={AsyncMain} />
+              <Route path={routeCodes.FUNNEL} component={AsyncFunnel} />
+              <Redirect to={`${routeCodes.FEEDBACK}${subRouteCodes.FEEDBACKS.NOTFOUND}`} />
             </Switch>
           </Layout>
         </QuestionContextProvider>
       </AppContextProvider>
     </Router>
   )
-}
+})
 
 export default Root

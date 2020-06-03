@@ -12,7 +12,7 @@ const AsyncQuestionVideo5 = AsyncComponentHOC(() => import('containers/Videos/Qu
 
 const { VIDEOS } = subRouteCodes
 
-function Videos() {
+const Videos = React.memo(() => {
   return (
     <AnimatedSwitch
       atEnter={{ opacity: 0 }}
@@ -28,6 +28,6 @@ function Videos() {
       <Redirect to={`${routeCodes.VIDEOS}${VIDEOS.VIDEO1}`} />
     </AnimatedSwitch>
   );
-}
+})
 
 export default Videos;
