@@ -12,14 +12,10 @@ const { AVAILABLE_IMAGES } = Image
 
 const Question21Button = React.memo(() => {
   const history = useHistory();
-  const { finishFunnel } = useContext(InfoContext)
 
   return (
     <Button
-      onClick={ () => {
-        finishFunnel()
-        history.push(`${routeCodes.VIDEOS}${subRouteCodes.VIDEOS.VIDEO1}`) 
-      }}
+      onClick={ () => history.push(`${routeCodes.VIDEOS}${subRouteCodes.VIDEOS.VIDEO1}`) }
       className='text-normal font-weight-bold w-100 mt-3'
     >
       Conheça mais sobre a grife
@@ -65,8 +61,12 @@ const question = {
 
 const Question21 = React.memo(() => {
   const {toggleBackgroundVisible} = useContext(AppContext);
+  const { finishFunnel } = useContext(InfoContext)
 
-  useEffect(() => toggleBackgroundVisible(true), [toggleBackgroundVisible]);
+  useEffect(() => {
+    toggleBackgroundVisible(true)
+    finishFunnel()
+  }, [finishFunnel, toggleBackgroundVisible]);
   return (
     <Custom question={question} />
   );

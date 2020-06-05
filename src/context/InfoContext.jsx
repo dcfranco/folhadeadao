@@ -6,6 +6,8 @@ import routeCodes, { subRouteCodes } from 'constants/routeCodes'
 
 const { FEEDBACKS } = subRouteCodes
 
+const max = 20
+
 export const InfoContext = createContext({
   userInfo: null,
   funnelInfo: null,
@@ -44,7 +46,7 @@ export const InfoContextProvider = ({children}) => {
 
     getUserInfo()
     getFunnelInfo()
-  }, [token])
+  }, [history, token])
 
   const nextQuestion = useCallback(async (code) => {
     try {
@@ -52,9 +54,9 @@ export const InfoContextProvider = ({children}) => {
       const result = { ...r }
       delete result.code
 
-      api.post(`/funnel-tokens/${token}/next`, {
+      await api.post(`/funnel-tokens/${token}/next`, {
         code: String(code),
-        answer: String(result),
+        answer: JSON.stringify(result),
       })
 
       updateFunnelInfo({ ...funnelInfo, currentQuestion: String(code) })
@@ -62,7 +64,7 @@ export const InfoContextProvider = ({children}) => {
       console.log(e)
     }
     return true
-  }, [token, funnelInfo, updateFunnelInfo, results])
+  }, [results, token, funnelInfo])
 
   const finishFunnel = useCallback(async () => {
     await api.post(`/funnel-tokens/${token}/finish`)
