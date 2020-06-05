@@ -34,7 +34,7 @@ export const InfoContextProvider = ({children}) => {
     }
     const getFunnelInfo = async () => {
       try {
-        const response = await api.get(`/funnel-tokens/${token}`)
+        const response = await api.get(`/funnel-tokens/token/${token}`)
         updateFunnelInfo(response.data)
       } catch (e) {
         updateFunnelInfo(null)
@@ -54,7 +54,7 @@ export const InfoContextProvider = ({children}) => {
 
       api.post(`/funnel-tokens/${token}/next`, {
         code: String(code),
-        answer: JSON.stringify(result),
+        answer: String(result),
       })
 
       updateFunnelInfo({ ...funnelInfo, currentQuestion: String(code) })
